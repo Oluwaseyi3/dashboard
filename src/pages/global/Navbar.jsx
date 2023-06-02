@@ -18,7 +18,7 @@ const Navbar = () => {
     const colorMode = useContext(ColorModeContext);
     const { toggleSidebar, broken, rtl } = useProSidebar();
     
-    console.log(rtl);
+
   return (
     <div>
          <Box display="flex" justifyContent="space-between" p={2}>
