@@ -8,8 +8,8 @@ const Heading = ({heading, subHeading}) => {
     const colors = tokens(theme.palette.mode);
   
   return (
-    <Box m="20px">
-    <Box mb="30px">
+ 
+    <Box mb="30px" >
       <Typography
         variant="h2"
         color={colors.grey[100]}
@@ -22,7 +22,7 @@ const Heading = ({heading, subHeading}) => {
         {subHeading}
       </Typography>
     </Box>
-    </Box>
+    
   )
 }
 
