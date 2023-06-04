@@ -24,7 +24,7 @@ const ColorButton = styled(Button)(({ theme }) => ({
   '&:hover': {
     backgroundColor: purple[700],
   },
-  margin: theme.spacing(0)
+  margin: theme.spacing(2)
 }));
 
 const Dashboard = () => {
@@ -52,19 +52,6 @@ const Dashboard = () => {
     const open = Boolean(anchorEl);
     const [accountStat, setAccountStats] = useState(null)
     
-
-   
-    const ACCOUNT_STATS_API=``
-    const handleClick = (event) => {
-      setAnchorEl(event.currentTarget);
-    
-    };
-    const handleClose = (event) => {
-      setAccountNo(event.target.value)
-      setAnchorEl(null);
-    };
-
-  
 
     
   useEffect(() => {
@@ -111,17 +98,29 @@ const Dashboard = () => {
        
       }
   
-    fetchStats()
 
     }
-  }, [bodyData?.[accountNo]?.id])
+    fetchStats()
+  }, [accountNo, ])
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
   
+  };
+
+
+  const handleClose = (event) => {
+    setAnchorEl(null);
+    setAccountNo(event.target.value)
+   
+  };
 
   if (loading) {
     return <p>Loading Body data...</p>;
   }
 
-   console.log(bodyData?.[accountNo]?.id);
+   console.log(bodyData?.[accountNo]?.provider);
+   console.log(bodyData);
+ 
   
   return (
     <div>
@@ -135,9 +134,9 @@ const Dashboard = () => {
       >
         <Box m="20px" display="flex" justifyContent="space-between">
       <Heading heading="Account" subHeading="Welcome to your dashboard" />
-
+      
       <Stack direction="row" spacing={2}>
-        <Box></Box>
+     
     <ColorButton
         id="fade-button"
         aria-controls={open ? 'fade-menu' : undefined}
@@ -147,8 +146,11 @@ const Dashboard = () => {
         variant="contained"
         endIcon={<ArrowDropDownIcon />}
       >
-         <Typography variant="h6" color="white" fontWeight="bold">  Dashboard</Typography>
-      
+        
+        <Box display="flex" justifyContent="space-between"alignItems="center">
+         <Typography variant="h4" color="white" fontWeight="bold"> {bodyData?.[accountNo]?.provider}</Typography>
+         <img src={bodyData?.[accountNo]?.logo} className='logo'/>
+         </Box>
       </ColorButton>
       </Stack>
       <Menu
@@ -161,9 +163,10 @@ const Dashboard = () => {
         onClose={handleClose}
         TransitionComponent={Fade}
       >
-        <MenuItem onClick={handleClose} value={0}>Profile</MenuItem>
-        <MenuItem onClick={handleClose} value={1}>My account</MenuItem>
-        <MenuItem onClick={handleClose} value={2}>Logout</MenuItem>
+        <MenuItem onClick={handleClose} value={0}>{bodyData?.[0]?.provider} account 1</MenuItem>
+        <MenuItem onClick={handleClose} value={1}>{bodyData?.[1]?.provider} account 2</MenuItem>
+        <MenuItem onClick={handleClose} value={2}>{bodyData?.[2]?.provider}</MenuItem>
+        <MenuItem onClick={handleClose} value={3}>{bodyData?.[3]?.provider} </MenuItem>
       </Menu>
       </Box>
       </Box>
