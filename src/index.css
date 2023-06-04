@@ -16,6 +16,9 @@ body,
 ::-webkit-scrollbar-track {
   background: #e0e0e0;
 }
+.icon{
+  width: 100px;
+}
 
 /* Handle */
 ::-webkit-scrollbar-thumb {

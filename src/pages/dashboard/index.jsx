@@ -1,11 +1,7 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import { Box, Button, IconButton, Typography, useTheme, useMediaQuery, Grid} from "@mui/material";
-import DownloadOutlined from "@mui/icons-material/DownloadOutlined";
-import Email from "@mui/icons-material/Email";
-import PointOfSale from "@mui/icons-material/PointOfSale";
-import PersonAdd from "@mui/icons-material/PersonAdd";
-import Traffic from "@mui/icons-material/Traffic";
+
 import { tokens } from '../../../theme';
 import Heading from '../../components/Heading';
 // import ServiceBox from '../../components/ServiceBox';
@@ -17,6 +13,10 @@ import { styled } from '@mui/material/styles';
 import { purple } from '@mui/material/colors';
 import Stack from '@mui/material/Stack';
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
+import Bills from '../../components/Cards/Bills';
+import Server from '../../components/Cards/Server';
+import Region from '../../components/Cards/Region';
+import Alarm from '../../components/Cards/Alarm';
 
 const ColorButton = styled(Button)(({ theme }) => ({
   color: theme.palette.getContrastText(purple[500]),
@@ -31,6 +31,7 @@ const Dashboard = () => {
 
     const theme = useTheme();
     const smScreen = useMediaQuery(theme.breakpoints.up("sm"));
+    const mdScreen = useMediaQuery(theme.breakpoints.up("md"));
     const colors = tokens(theme.palette.mode);
 
 
@@ -47,8 +48,6 @@ const Dashboard = () => {
     const accountRef = useRef(null)
 
     const ACCOUNT_API ='https://hiring.tailwarden.com/v1/accounts';
-    // const ACCOUNT_STATS_API=`https://hiring.tailwarden.com/v1/accounts/${bodyData[0].id}`
- 
     const open = Boolean(anchorEl);
     const [accountStat, setAccountStats] = useState(null)
     
@@ -118,12 +117,12 @@ const Dashboard = () => {
     return <p>Loading Body data...</p>;
   }
 
-   console.log(bodyData?.[accountNo]?.provider);
-   console.log(bodyData);
+  //  console.log(bodyData?.[accountNo]?.provider);
+   console.log(accountStat);
  
   
   return (
-    <div>
+    <Box>
 
         
       <Box display={smScreen ? "flex" : "block"}
@@ -131,6 +130,7 @@ const Dashboard = () => {
         justifyContent={smScreen ? "space-between" : "start"}
         alignItems={smScreen ? "center" : "start"}
         m="10px 0"
+        height="100%" width="100%"
       >
         <Box m="20px" display="flex" justifyContent="space-between">
       <Heading heading="Account" subHeading="Welcome to your dashboard" />
@@ -149,7 +149,7 @@ const Dashboard = () => {
         
         <Box display="flex" justifyContent="space-between"alignItems="center">
          <Typography variant="h4" color="white" fontWeight="bold"> {bodyData?.[accountNo]?.provider}</Typography>
-         <img src={bodyData?.[accountNo]?.logo} className='logo'/>
+            <img src={bodyData?.[accountNo]?.logo} className='logo'/>
          </Box>
       </ColorButton>
       </Stack>
@@ -170,7 +170,34 @@ const Dashboard = () => {
       </Menu>
       </Box>
       </Box>
-    </div>
+
+      <Box sx={{height: "50vh", width: "100%", p: "10px",}}>
+      <Grid container spacing={2}>
+        <Grid item xs={12} sm={12} md={6} lg={3} xl={3}>
+        <Box width="100%" display="flex" alignItems="center" justifyContent="center" >
+           <Bills stat={accountStat}/>
+          </Box>
+         </Grid>
+         
+         <Grid item xs={12} sm={12} md={6} lg={3} xl={3}>
+          <Box width="100%" display="flex" alignItems="center" justifyContent="center" >
+            <Server  server={accountStat}/>
+           </Box>
+          </Grid>
+          <Grid item xs={12} sm={12} md={6} lg={3} xl={3}>
+           <Box width="100%" display="flex" alignItems="center" justifyContent="center" >
+             <Region region={accountStat} />
+           </Box>
+         </Grid>
+         <Grid item xs={12} sm={12} md={6} lg={3} xl={3}>
+         <Box width="100%" display="flex" alignItems="center" justifyContent="center" >
+            <Alarm alarm={accountStat} />
+          </Box>
+        </Grid>
+        </Grid>
+      </Box>
+     
+    </Box>
   )
 }
 
