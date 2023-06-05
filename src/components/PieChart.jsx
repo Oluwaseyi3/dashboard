@@ -28,7 +28,7 @@ const PieChart = ({bodyData, accountNo}) => {
           }
           fetchAccountCost()
     }, [bodyData?.[accountNo]?.id])
-    console.log(accountCost[0].groups[0].amount);
+    console.log(accountCost);
 
     // const data = {
     //     labels: accountCost.map((account) => account),
@@ -36,8 +36,16 @@ const PieChart = ({bodyData, accountNo}) => {
     // }
   return (
     <div>
-        s
-        {/* <Bar data={data} options={options}/> */}
+        {accountCost.map((object, i) => (
+            <div key={i}>
+                {
+                object.groups.map((item) => (
+                    <div>{item.amount}</div>
+                ))
+            }
+            </div>
+            
+        ))}
     </div>
   )
 }
