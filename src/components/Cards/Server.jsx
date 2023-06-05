@@ -8,13 +8,14 @@ import Typography from '@mui/material/Typography';
 import { tokens } from '../../../theme'
 import {useTheme} from "@mui/material";
 import servericon from "../../assets/servericon.svg"
+import { purple } from '@mui/material/colors';
 
 const Server = ({server}) => {
     const theme = useTheme();
     const colors = tokens(theme.palette.mode);
 
   return (
-    <Card sx={{ width: 250 , height: 250 }}>
+    <Card sx={{ width: 250 , height: 250, backgroundColor: purple[300]}}>
     <CardContent>
       <Typography sx={{ fontSize: 25 }} color={colors.grey[100]} gutterBottom>
         Servers

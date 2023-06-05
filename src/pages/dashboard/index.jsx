@@ -17,12 +17,13 @@ import Bills from '../../components/Cards/Bills';
 import Server from '../../components/Cards/Server';
 import Region from '../../components/Cards/Region';
 import Alarm from '../../components/Cards/Alarm';
+import PieChart from '../../components/PieChart';
 
 const ColorButton = styled(Button)(({ theme }) => ({
-  color: theme.palette.getContrastText(purple[500]),
-  backgroundColor: purple[500],
+  color: theme.palette.getContrastText(purple[700]),
+  backgroundColor: purple[700],
   '&:hover': {
-    backgroundColor: purple[700],
+    backgroundColor: purple[900],
   },
   margin: theme.spacing(2)
 }));
@@ -41,11 +42,13 @@ const Dashboard = () => {
     const [loadingStats, setLoadingStats] = useState(true)
     const [anchorEl, setAnchorEl] = React.useState(null);
     const [accountNo, setAccountNo]= React.useState(0)
-  
+
+
   
     const bodyRef = useRef(null);
     
     const accountRef = useRef(null)
+
 
     const ACCOUNT_API ='https://hiring.tailwarden.com/v1/accounts';
     const open = Boolean(anchorEl);
@@ -100,6 +103,8 @@ const Dashboard = () => {
 
     }
     fetchStats()
+
+
   }, [accountNo, ])
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
@@ -196,7 +201,7 @@ const Dashboard = () => {
         </Grid>
         </Grid>
       </Box>
-     
+       <PieChart bodyData={bodyData} accountNo={accountNo} />
     </Box>
   )
 }

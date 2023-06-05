@@ -8,12 +8,16 @@ import Typography from '@mui/material/Typography';
 import { tokens } from '../../../theme'
 import {useTheme} from "@mui/material";
 import moneyIcon from "../../assets/moneyIcon.svg"
+import { purple, red } from '@mui/material/colors';
 
 const Bills = ({stat}) => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
   return (
-    <Card sx={{ width: 250 , height: 250 }}>
+    // <Box sx={{backgroundColor={colors.redAccent[100]}}>
+
+    // </Box>
+    <Card sx={{ width: 250 , height: 250 ,backgroundColor: purple[300] }}>
       <CardContent>
         <Typography variant='h1' sx={{ fontSize: 25}} color={colors.grey[100]} gutterBottom>
           Bills
