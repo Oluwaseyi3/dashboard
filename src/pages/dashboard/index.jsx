@@ -18,6 +18,7 @@ import Server from '../../components/Cards/Server';
 import Region from '../../components/Cards/Region';
 import Alarm from '../../components/Cards/Alarm';
 import BarCharts from '../../components/Barcharts';
+import PieChart from '../../components/PieChart';
 
 const ColorButton = styled(Button)(({ theme }) => ({
   color: theme.palette.getContrastText(purple[700]),
@@ -128,7 +129,7 @@ const Dashboard = () => {
  
   
   return (
-    <Box>
+    <Box m= '10px' height="100%">
 
         
       <Box display={smScreen ? "flex" : "block"}
@@ -177,7 +178,7 @@ const Dashboard = () => {
       </Box>
       </Box>
 
-      <Box sx={{height: "50vh", width: "100%", p: "10px",}}>
+      <Box sx={{height: "100%", width: "100%", p: "20px", m:"10px"}}>
       <Grid container spacing={2}>
         <Grid item xs={12} sm={12} md={6} lg={3} xl={3}>
         <Box width="100%" display="flex" alignItems="center" justifyContent="center" >
@@ -203,8 +204,19 @@ const Dashboard = () => {
         </Grid>
       </Box>
       
-      <Box width="100%" display="flex" alignItems="center" justifyContent="start" >
-       <BarCharts bodyData={bodyData} accountNo={accountNo} />
+      <Box  >
+      <Grid container spacing={2}>
+      <Grid item xs={12} sm={12} md={12} lg={6} xl={6}>
+       <Box width="100%" display="flex" alignItems="center" justifyContent="center" >
+        <BarCharts bodyData={bodyData} accountNo={accountNo} />
+        </Box>
+       </Grid>
+       <Grid item xs={12} sm={12} md={12} lg={6} xl={6}>
+       <Box width="100%" display="flex" alignItems="center" justifyContent="center" >
+       <PieChart bodyData={bodyData} accountNo={accountNo} />
+       </Box>
+       </Grid>
+       </Grid>
        </Box>
     </Box>
   )

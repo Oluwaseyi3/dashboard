@@ -15,7 +15,7 @@ const Server = ({server}) => {
     const colors = tokens(theme.palette.mode);
 
   return (
-    <Card sx={{ width: 250 , height: 250, backgroundColor: grey[300]}}>
+    <Card sx={{ width: 200 , height: 200, backgroundColor: grey[300]}}>
     <CardContent>
       <Typography sx={{ fontSize: 25 }} color={colors.grey[100]} gutterBottom>
         Servers

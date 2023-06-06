@@ -17,7 +17,7 @@ const Bills = ({stat}) => {
     // <Box sx={{backgroundColor={colors.redAccent[100]}}>
 
     // </Box>
-    <Card sx={{ width: 250 , height: 250 ,backgroundColor: grey[300] }}>
+    <Card sx={{ width: 200 , height: 200 ,backgroundColor: grey[300] }}>
       <CardContent>
         <Typography variant='h1' sx={{ fontSize: 25}} color={colors.grey[100]} gutterBottom>
           Bills
