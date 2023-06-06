@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect, useRef } from 'react';
-import { Box, Button, IconButton, Typography, useTheme, useMediaQuery, Grid} from "@mui/material";
+import { Box, Button, IconButton, Typography, useTheme, useMediaQuery, Grid, Container} from "@mui/material";
 
 import { tokens } from '../../../theme';
 import Heading from '../../components/Heading';
@@ -17,8 +17,7 @@ import Bills from '../../components/Cards/Bills';
 import Server from '../../components/Cards/Server';
 import Region from '../../components/Cards/Region';
 import Alarm from '../../components/Cards/Alarm';
-import PieChart from '../../components/PieChart';
-import {Chart as ChartJS, BarElement, CategoryScale, LinearScale, Tooltip, Legend} from "chart.js"
+import BarCharts from '../../components/Barcharts';
 
 const ColorButton = styled(Button)(({ theme }) => ({
   color: theme.palette.getContrastText(purple[700]),
@@ -43,8 +42,7 @@ const Dashboard = () => {
     const [loadingStats, setLoadingStats] = useState(true)
     const [anchorEl, setAnchorEl] = React.useState(null);
     const [accountNo, setAccountNo]= React.useState(0)
-    const [accountCost, setAccountCost] = useState([])
-    const accountCostRef = useRef(null)
+
 
 
   
@@ -107,25 +105,7 @@ const Dashboard = () => {
     }
     fetchStats()
 
-    const fetchAccountCost = async() => {
-      try {
-        if (accountCostRef.current) {
-          setAccountCost(accountCostRef.current)
-       
-        }
-        const response = await axios.get(`https://hiring.tailwarden.com/v1/accounts/${bodyData?.[accountNo]?.id}/history`)
-          const data = response.data;
-          accountCostRef.current = data;
-          setAccountCost(data)
-          console.log(accountCost);
-      } catch (error) {
-        console.error(error);
-       
-      }
-  
 
-    }
-    fetchAccountCost()
   }, [accountNo, ])
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
@@ -144,7 +124,7 @@ const Dashboard = () => {
   }
 
   //  console.log(bodyData?.[accountNo]?.provider);
-   console.log(accountCost);
+
  
   
   return (
@@ -222,7 +202,10 @@ const Dashboard = () => {
         </Grid>
         </Grid>
       </Box>
-       {/* <PieChart bodyData={bodyData} accountNo={accountNo} /> */}
+      
+      <Box width="100%" display="flex" alignItems="center" justifyContent="start" >
+       <BarCharts bodyData={bodyData} accountNo={accountNo} />
+       </Box>
     </Box>
   )
 }

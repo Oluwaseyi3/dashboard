@@ -7,13 +7,13 @@ import Typography from '@mui/material/Typography';
 import { tokens } from '../../../theme'
 import {useTheme} from "@mui/material";
 import alarmIcon from "../../assets/alarmIcon.svg"
-import { purple } from '@mui/material/colors';
+import { grey } from '@mui/material/colors';
 
 const Alarm = ({alarm}) => {
     const theme = useTheme();
     const colors = tokens(theme.palette.mode);
   return (
-    <Card sx={{ width: 250 , height: 250, backgroundColor: purple[300]}}>
+    <Card sx={{ width: 250 , height: 250, backgroundColor: grey[300]}}>
     <CardContent>
     <Typography sx={{ fontSize: 25 }} color={colors.grey[100]}gutterBottom>
         Alarms

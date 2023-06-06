@@ -110,7 +110,7 @@ const MyProSidebar = () => {
               alignItems="center"
               ml="15px"
             >
-              <Typography variant="h3" color={colors.grey[100]}>
+              <Typography variant="h3" color={colors.grey[200]}>
                 Welcome
               </Typography>
               <IconButton
@@ -147,7 +147,7 @@ const MyProSidebar = () => {
             <Box textAlign="center">
               <Typography
                 variant="h3"
-                color={colors.grey[100]}
+                color={colors.grey[200]}
                 fontWeight="bold"
                 sx={{ m: "10px 0 0 0" }}
               >
