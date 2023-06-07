@@ -5,7 +5,6 @@ import Chart from 'chart.js/auto';
 import { tokens } from '../../theme'
 import {Chart as ChartJS, BarElement, CategoryScale, LinearScale, Tooltip, Legend, ArcElement} from "chart.js"
 import { useTheme} from "@mui/material";
-import { BarChart } from '@mui/icons-material';
 
 
 ChartJS.register(BarElement, CategoryScale, LinearScale);

@@ -38,9 +38,7 @@ const Dashboard = () => {
     const theme = useTheme();
     const colors = tokens(theme.palette.mode);
     const smScreen = useMediaQuery(theme.breakpoints.up("sm"));
-    const mdScreen = useMediaQuery(theme.breakpoints.up("md"));
 
-   
     const [bodyData, setBodyData] = useState(null);
     const [loading, setLoading] = useState(true);
     const [loadingStats, setLoadingStats] = useState(true)
@@ -95,7 +93,7 @@ const Dashboard = () => {
       }
     }
     fetchStats()
-  }, [accountNo, ])
+  }, [accountNo])
 
 
   const handleClick = (event) => {
@@ -113,15 +111,8 @@ const Dashboard = () => {
   }
 
  
-
-   console.log(bodyData?.[accountNo]?.provider);
-
- 
-  
   return (
-    <Box m= '10px' height="100%">
-
-        
+    <Box m= '10px' height="100%">        
       <Box display={smScreen ? "flex" : "block"}
         flexDirection={smScreen ? "row" : "column"}
         justifyContent={smScreen ? "space-between" : "start"}
