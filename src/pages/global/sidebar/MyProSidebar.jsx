@@ -170,24 +170,11 @@ const MyProSidebar = () => {
             color={colors.grey[300]}
             sx={{ m: "15px 20px 5px 20px" }}
           >
-            Data
+           Team
           </Typography>
+          
           <Item
-            title="Manage Team"
-            to="/team"
-            icon={<PeopleOutlined/>}
-            selected={selected}
-            setSelected={setSelected}
-          />
-          <Item
-            title="Contacts Information"
-            to="/contacts"
-            icon={<ContactsOutlined/>}
-            selected={selected}
-            setSelected={setSelected}
-          />
-          <Item
-            title="Invoices Balances"
+            title="Services"
             to="/invoices"
             icon={<ReceiptOutlined />}
             selected={selected}

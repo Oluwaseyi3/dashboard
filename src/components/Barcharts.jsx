@@ -44,12 +44,12 @@ const BarCharts = ({bodyData, accountNo}) => {
         key: accountCost.map(x=> x.groups.map(item => item.key))
     }
     
-    console.log(account);
+    
 
     Chart.defaults.font.size = 16;
 
     const data = {
-        labels: account.key[0],
+        labels: account.key[0], 
         datasets: [{
           label: ` Services`,
           data: account.amount[0],
@@ -88,16 +88,7 @@ const BarCharts = ({bodyData, accountNo}) => {
 
   return (
     <div>
-        {/* {accountCost?.map((object, i) => (
-            <div key={i}>
-                {
-                object?.groups.map((item) => (
-                    <div>{item.amount}</div>
-                ))
-            }
-            </div>
-            
-        ))} */}
+    
         <Bar data={data} height={400} options={options} />
     </div>
   )

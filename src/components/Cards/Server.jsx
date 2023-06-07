@@ -14,6 +14,9 @@ const Server = ({server}) => {
     const theme = useTheme();
     const colors = tokens(theme.palette.mode);
 
+
+    
+
   return (
     <Card sx={{ width: 200 , height: 200, backgroundColor: grey[300]}}>
     <CardContent>

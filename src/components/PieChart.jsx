@@ -3,7 +3,7 @@ import { Pie } from 'react-chartjs-2'
 import axios from 'axios'
 import Chart from 'chart.js/auto';
 import { tokens } from '../../theme'
-import {Chart as ChartJS, BarElement, CategoryScale, LinearScale, Tooltip, Legend, ArcElement} from "chart.js"
+import {Chart as ChartJS, Tooltip, Legend, ArcElement} from "chart.js"
 import { useTheme} from "@mui/material";
 
 
@@ -45,7 +45,7 @@ const PieChart = ({bodyData, accountNo}) => {
         key: accountCost.map(x=> x.groups.map(item => item.key))
     }
     
-    console.log(account);
+
 
     Chart.defaults.font.size = 16;
 

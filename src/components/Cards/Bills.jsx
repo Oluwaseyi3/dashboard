@@ -13,6 +13,9 @@ import { purple, grey } from '@mui/material/colors';
 const Bills = ({stat}) => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
+
+
+  
   return (
     // <Box sx={{backgroundColor={colors.redAccent[100]}}>
 
