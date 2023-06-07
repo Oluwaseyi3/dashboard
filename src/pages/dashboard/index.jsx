@@ -196,12 +196,18 @@ const Dashboard = () => {
           </Box>
         </Grid>
         </Grid>
+        
       </Box>
       
       <Box  >
+         <Box sx={{p: "10px", }}>
+         <Typography variant='h3'>Service over the past month</Typography>
+         </Box>
       <Grid container spacing={2}>
+         
       <Grid item xs={12} sm={12} md={12} lg={6} xl={6}>
        <Box width="100%" display="flex" alignItems="center" justifyContent="center" >
+      
         <BarCharts bodyData={bodyData} accountNo={accountNo} />
         </Box>
        </Grid>
